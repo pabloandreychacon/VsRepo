@@ -1,0 +1,117 @@
+﻿@model Control.Web.Core.Models.GeneralParametros
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>GeneralParametros</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdParametro" />
+            <div class="form-group">
+                <label asp-for="ConsecutivoFacturas" class="control-label"></label>
+                <input asp-for="ConsecutivoFacturas" class="form-control" />
+                <span asp-validation-for="ConsecutivoFacturas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="EnviarFactura" /> @Html.DisplayNameFor(model => model.EnviarFactura)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreEmpresa" class="control-label"></label>
+                <input asp-for="NombreEmpresa" class="form-control" />
+                <span asp-validation-for="NombreEmpresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DetalleFacturas" class="control-label"></label>
+                <input asp-for="DetalleFacturas" class="form-control" />
+                <span asp-validation-for="DetalleFacturas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Correo" class="control-label"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Identificacion" class="control-label"></label>
+                <input asp-for="Identificacion" class="form-control" />
+                <span asp-validation-for="Identificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RutaLogo" class="control-label"></label>
+                <input asp-for="RutaLogo" class="form-control" />
+                <span asp-validation-for="RutaLogo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RutaSistema" class="control-label"></label>
+                <input asp-for="RutaSistema" class="form-control" />
+                <span asp-validation-for="RutaSistema" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HostCorreo" class="control-label"></label>
+                <input asp-for="HostCorreo" class="form-control" />
+                <span asp-validation-for="HostCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PortCorreo" class="control-label"></label>
+                <input asp-for="PortCorreo" class="form-control" />
+                <span asp-validation-for="PortCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeOutCorreo" class="control-label"></label>
+                <input asp-for="TimeOutCorreo" class="form-control" />
+                <span asp-validation-for="TimeOutCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserNameCorreo" class="control-label"></label>
+                <input asp-for="UserNameCorreo" class="form-control" />
+                <span asp-validation-for="UserNameCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordCorreo" class="control-label"></label>
+                <input asp-for="PasswordCorreo" class="form-control" />
+                <span asp-validation-for="PasswordCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromCorreo" class="control-label"></label>
+                <input asp-for="FromCorreo" class="form-control" />
+                <span asp-validation-for="FromCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplayNameCorreo" class="control-label"></label>
+                <input asp-for="DisplayNameCorreo" class="form-control" />
+                <span asp-validation-for="DisplayNameCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CorreoContactoRespaldos" class="control-label"></label>
+                <input asp-for="CorreoContactoRespaldos" class="form-control" />
+                <span asp-validation-for="CorreoContactoRespaldos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

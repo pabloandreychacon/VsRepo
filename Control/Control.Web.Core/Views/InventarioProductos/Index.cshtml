@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Control.Web.Core.Models.InventarioProductos>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Impuestos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerificaDisponible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Utilidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCategoriaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProveedorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Impuestos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerificaDisponible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Correo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdProducto">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdProducto">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdProducto">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
