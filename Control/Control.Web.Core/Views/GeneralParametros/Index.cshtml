@@ -68,65 +68,66 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConsecutivoFacturas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnviarFactura)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreEmpresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetalleFacturas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Identificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RutaLogo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RutaSistema)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HostCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PortCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeOutCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserNameCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PasswordCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FromCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisplayNameCorreo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CorreoContactoRespaldos)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdParametro">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdParametro">Details</a> |
-                @*<a asp-action="Delete" asp-route-id="@item.IdParametro">Delete</a>*@
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsecutivoFacturas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnviarFactura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreEmpresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetalleFacturas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Identificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RutaLogo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RutaSistema)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PortCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOutCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserNameCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PasswordCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplayNameCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorreoContactoRespaldos)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdParametro">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdParametro">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdParametro">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

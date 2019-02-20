@@ -115,34 +115,39 @@ namespace Control.Web.Core.Controllers
             return View(generalParametros);
         }
 
-        //// GET: GeneralParametros/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // GET: GeneralParametros/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    var generalParametros = await _context.GeneralParametros
-        //        .FirstOrDefaultAsync(m => m.IdParametro == id);
-        //    if (generalParametros == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var generalParametros = await _context.GeneralParametros
+                .FirstOrDefaultAsync(m => m.IdParametro == id);
+            if (generalParametros == null)
+            {
+                return NotFound();
+            }
+            if (_context.GeneralParametros.Count() == 1)
+            {
+                ViewData["DeleteMessage"] = "No se puede borrar el último y único registro existente";
+                //return View();
+            }
+            return View(generalParametros);
+        }
 
-        //    return View(generalParametros);
-        //}
-
-        //// POST: GeneralParametros/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var generalParametros = await _context.GeneralParametros.FindAsync(id);
-        //    _context.GeneralParametros.Remove(generalParametros);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        // POST: GeneralParametros/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var generalParametros = await _context.GeneralParametros.FindAsync(id);
+            _context.GeneralParametros.Remove(generalParametros);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
         private bool GeneralParametrosExists(int id)
         {
