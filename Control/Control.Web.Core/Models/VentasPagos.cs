@@ -12,7 +12,7 @@ namespace Control.Web.Core.Models
         public decimal MontoRecibido { get; set; }
         public decimal MontoAplicado { get; set; }
 
-        public VentasFormasPago IdFormaPagoNavigation { get; set; }
+        public VentasFormasPagos IdFormaPagoNavigation { get; set; }
         public VentasDocumentos IdVentaNavigation { get; set; }
     }
 }

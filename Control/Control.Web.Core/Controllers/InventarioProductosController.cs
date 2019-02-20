@@ -49,7 +49,7 @@ namespace Control.Web.Core.Controllers
         public IActionResult Create()
         {
             ViewData["IdCategoria"] = new SelectList(_context.InventarioCategorias, "IdCategoria", "Descripcion");
-            ViewData["IdProveedor"] = new SelectList(_context.ProveeduriaProveedores, "IdProveedor", "Correo");
+            ViewData["IdProveedor"] = new SelectList(_context.ProveeduriaProveedores, "IdProveedor", "Nombre");
             return View();
         }
 

@@ -26,16 +26,16 @@ namespace Control.Web.Core.Models
         public virtual DbSet<VentasClientes> VentasClientes { get; set; }
         public virtual DbSet<VentasDetalleVentas> VentasDetalleVentas { get; set; }
         public virtual DbSet<VentasDocumentos> VentasDocumentos { get; set; }
-        public virtual DbSet<VentasFormasPago> VentasFormasPagos { get; set; }
+        public virtual DbSet<VentasFormasPagos> VentasFormasPagos { get; set; }
         public virtual DbSet<VentasPagos> VentasPagos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
+//            if (!optionsBuilder.IsConfigured)
+//            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer("Server=EPIC_LAP_10\\SQLEXPRESS;Database=PosControl;Trusted_Connection=True;");
-            }
+//                optionsBuilder.UseSqlServer("Server=EPIC_LAP_10\\SQLEXPRESS;Database=PosControl;Trusted_Connection=True;");
+//            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -62,8 +62,6 @@ namespace Control.Web.Core.Models
                 entity.HasKey(e => e.IdParametro);
 
                 entity.ToTable("General.Parametros");
-
-                entity.Property(e => e.IdParametro).ValueGeneratedNever();
 
                 entity.Property(e => e.Correo).HasMaxLength(50);
 
@@ -266,7 +264,7 @@ namespace Control.Web.Core.Models
                     .HasConstraintName("FK_Ventas.Documentos_Ventas.Clientes");
             });
 
-            modelBuilder.Entity<VentasFormasPago>(entity =>
+            modelBuilder.Entity<VentasFormasPagos>(entity =>
             {
                 entity.HasKey(e => e.IdFormaPago);
 
@@ -291,7 +289,7 @@ namespace Control.Web.Core.Models
                     .WithMany(p => p.VentasPagos)
                     .HasForeignKey(d => d.IdFormaPago)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Ventas.Pagos_Ventas.FormasPagos");
+                    .HasConstraintName("FK_Ventas.Pagos_Ventas.FormasPago");
 
                 entity.HasOne(d => d.IdVentaNavigation)
                     .WithMany(p => p.VentasPagos)

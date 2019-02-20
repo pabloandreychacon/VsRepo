@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Control.Web.Core.Models
 {
-    public partial class VentasFormasPago
+    public partial class VentasFormasPagos
     {
-        public VentasFormasPago()
+        public VentasFormasPagos()
         {
             VentasPagos = new HashSet<VentasPagos>();
         }

@@ -18,13 +18,13 @@ namespace Control.Web.Core.Controllers
             _context = context;
         }
 
-        // GET: VentasFormasPagoes
+        // GET: VentasFormasPagos
         public async Task<IActionResult> Index()
         {
             return View(await _context.VentasFormasPagos.ToListAsync());
         }
 
-        // GET: VentasFormasPagoes/Details/5
+        // GET: VentasFormasPagos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace Control.Web.Core.Controllers
                 return NotFound();
             }
 
-            var ventasFormasPago = await _context.VentasFormasPagos
+            var ventasFormasPagos = await _context.VentasFormasPagos
                 .FirstOrDefaultAsync(m => m.IdFormaPago == id);
-            if (ventasFormasPago == null)
+            if (ventasFormasPagos == null)
             {
                 return NotFound();
             }
 
-            return View(ventasFormasPago);
+            return View(ventasFormasPagos);
         }
 
-        // GET: VentasFormasPagoes/Create
+        // GET: VentasFormasPagos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: VentasFormasPagoes/Create
+        // POST: VentasFormasPagos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdFormaPago,Descripcion")] VentasFormasPago ventasFormasPago)
+        public async Task<IActionResult> Create([Bind("IdFormaPago,Descripcion")] VentasFormasPagos ventasFormasPagos)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(ventasFormasPago);
+                _context.Add(ventasFormasPagos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(ventasFormasPago);
+            return View(ventasFormasPagos);
         }
 
-        // GET: VentasFormasPagoes/Edit/5
+        // GET: VentasFormasPagos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace Control.Web.Core.Controllers
                 return NotFound();
             }
 
-            var ventasFormasPago = await _context.VentasFormasPagos.FindAsync(id);
-            if (ventasFormasPago == null)
+            var ventasFormasPagos = await _context.VentasFormasPagos.FindAsync(id);
+            if (ventasFormasPagos == null)
             {
                 return NotFound();
             }
-            return View(ventasFormasPago);
+            return View(ventasFormasPagos);
         }
 
-        // POST: VentasFormasPagoes/Edit/5
+        // POST: VentasFormasPagos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdFormaPago,Descripcion")] VentasFormasPago ventasFormasPago)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFormaPago,Descripcion")] VentasFormasPagos ventasFormasPagos)
         {
-            if (id != ventasFormasPago.IdFormaPago)
+            if (id != ventasFormasPagos.IdFormaPago)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace Control.Web.Core.Controllers
             {
                 try
                 {
-                    _context.Update(ventasFormasPago);
+                    _context.Update(ventasFormasPagos);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VentasFormasPagoExists(ventasFormasPago.IdFormaPago))
+                    if (!VentasFormasPagosExists(ventasFormasPagos.IdFormaPago))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace Control.Web.Core.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(ventasFormasPago);
+            return View(ventasFormasPagos);
         }
 
-        // GET: VentasFormasPagoes/Delete/5
+        // GET: VentasFormasPagos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,28 +123,28 @@ namespace Control.Web.Core.Controllers
                 return NotFound();
             }
 
-            var ventasFormasPago = await _context.VentasFormasPagos
+            var ventasFormasPagos = await _context.VentasFormasPagos
                 .FirstOrDefaultAsync(m => m.IdFormaPago == id);
-            if (ventasFormasPago == null)
+            if (ventasFormasPagos == null)
             {
                 return NotFound();
             }
 
-            return View(ventasFormasPago);
+            return View(ventasFormasPagos);
         }
 
-        // POST: VentasFormasPagoes/Delete/5
+        // POST: VentasFormasPagos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var ventasFormasPago = await _context.VentasFormasPagos.FindAsync(id);
-            _context.VentasFormasPagos.Remove(ventasFormasPago);
+            var ventasFormasPagos = await _context.VentasFormasPagos.FindAsync(id);
+            _context.VentasFormasPagos.Remove(ventasFormasPagos);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool VentasFormasPagoExists(int id)
+        private bool VentasFormasPagosExists(int id)
         {
             return _context.VentasFormasPagos.Any(e => e.IdFormaPago == id);
         }
