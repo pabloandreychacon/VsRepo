@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
-using System.Text;
 
-namespace Helpers
+namespace Tools
 {
-    public class EmailMethods
+    public class Email
     {
         public static void SendEmail(string mensajeBody, int port, int timeout, string host, string userName, string password,
             string asunto, string fromEmail, string displayName, string destinos, bool isHtml = false)
@@ -52,7 +50,7 @@ namespace Helpers
             }
             else
             {
-                var myType = typeof(EmailMethods);
+                var myType = typeof(Email);
                 var ns = myType.Namespace;
                 throw new Exception("No hay conexión a Internet, imposible enviar correo. " + ns);
             }

@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Tools
+{
+    public class Forms
+    {
+        public class FormManager
+        {
+
+            private static bool _booFound;
+
+            public static bool FindAndOpenForm(string pFormName)
+            {
+                _booFound = false;
+                for (var I = 0; I < Application.OpenForms.Count; I++)
+                {
+                    var NombreForm = Application.OpenForms[I].Name;
+                    if (NombreForm.Contains(pFormName))
+                    {
+                        _booFound = true;
+                        Application.OpenForms[I].Visible = true;
+                        Application.OpenForms[I].Activate();
+                    }
+                }
+                return _booFound;
+            }
+
+            public static void DestroyForm(params string[] formsArray)
+            {
+                foreach (var S in formsArray)
+                {
+                    for (var I = 0; I < Application.OpenForms.Count; I++)
+                    {
+                        var NombreForm = Application.OpenForms[I].Name;
+                        if (NombreForm.Contains(S))
+                        {
+                            Application.OpenForms[I].Dispose();
+                        }
+                    }
+                }
+            }
+
+            public static void DestroyForm(string formName)
+            {
+                for (var I = 0; I < Application.OpenForms.Count; I++)
+                {
+                    var NombreForm = Application.OpenForms[I].Name;
+                    if (NombreForm.Contains(formName))
+                    {
+                        Application.OpenForms[I].Dispose();
+                    }
+                }
+
+            }
+        }
+
+        public class InputDialog
+        {
+            public static DialogResult InputBox(string title, string promptText, ref string value)
+            {
+                Form form = new Form();
+                Label label = new Label();
+                TextBox textBox = new TextBox();
+                Button buttonOk = new Button();
+                Button buttonCancel = new Button();
+
+                form.Text = title;
+                label.Text = promptText;
+                textBox.Text = value;
+
+                buttonOk.Text = "OK";
+                buttonCancel.Text = "Cancel";
+                buttonOk.DialogResult = DialogResult.OK;
+                buttonCancel.DialogResult = DialogResult.Cancel;
+
+                label.SetBounds(9, 20, 372, 13);
+                textBox.SetBounds(12, 36, 372, 20);
+                buttonOk.SetBounds(228, 72, 75, 23);
+                buttonCancel.SetBounds(309, 72, 75, 23);
+
+                label.AutoSize = true;
+                textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+                buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+                form.ClientSize = new Size(396, 107);
+                form.Controls.AddRange(new System.Windows.Forms.Control[] { label, textBox, buttonOk, buttonCancel });
+                form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+                form.FormBorderStyle = FormBorderStyle.FixedDialog;
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.MinimizeBox = false;
+                form.MaximizeBox = false;
+                form.AcceptButton = buttonOk;
+                form.CancelButton = buttonCancel;
+
+                DialogResult dialogResult = form.ShowDialog();
+                value = textBox.Text;
+                return dialogResult;
+            }
+        }
+    }
+}

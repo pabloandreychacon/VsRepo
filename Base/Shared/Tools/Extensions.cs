@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
-namespace Helpers
+namespace Tools
 {
-    public static class ExtensionMethods
+    public static class Extensions
     {
-
         public static DataTable AsDataTable<T>(this IEnumerable<T> list)
             where T : class
         {

@@ -2,9 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Helpers
+namespace Tools
 {
-    public class AdoDataMethods
+    public class Ado
     {
         public static int ExecuteSql(string pConnection, string pSql)
         {
@@ -103,7 +103,7 @@ namespace Helpers
             }
         }
 
-        /* funciones complejas */
+        /* sql commands  */
         public static bool CountRecords(string pTableName, string pConnection)
         {
             var hasRecords = false;
@@ -114,11 +114,11 @@ namespace Helpers
             return hasRecords;
         }
 
-        // convert list to a DataTable
         public static DataTable CreateDataTable<T>(IEnumerable<T> list) where T : class
         {
             var dt = list.AsDataTable();
             return dt;
         }
+
     }
 }
