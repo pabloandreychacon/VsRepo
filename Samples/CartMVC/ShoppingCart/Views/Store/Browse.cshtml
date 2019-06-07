@@ -1,0 +1,22 @@
+﻿@model ShoppingCart.Models.Location
+
+@{
+    ViewBag.Title = "Browse Items";
+}
+<h2>Browsing Location: @Model.Name</h2>
+<div class="location">
+    <h3><em>@Model.Name</em> Items</h3>
+ 
+    <ul id="album-list">
+        @foreach (var item in Model.Items)
+        {
+            <li>
+                <a href="@Url.Action("Details",
+                    new { id = item.ItemId })">
+                    @*<img alt="@item.Name" src="@item.AlbumArtUrl" />*@
+                    <span>@item.Name</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,38 @@
+﻿@*@model IEnumerable<ShoppingCart.Models.Location>
+
+@{
+    ViewBag.Title = "DCU Concierge Store";
+}
+
+<h2>Index</h2>
+<h3>Browse Locations:</h3>
+<p>
+    Select from @Model.Count()
+locations:</p>
+<ul>
+    @foreach (var location in Model)
+    {
+        <li>@Html.ActionLink(location.Name,
+"Browse", new { location = location.Name })</li>
+    }
+</ul>*@
+
+@model List<ShoppingCart.Models.Item>
+@{
+    ViewBag.Title = "DCU Concierge Store";
+}
+<div id="promotion">
+</div>
+<h3><em>Fresh</em> off the grill</h3>
+<ul id="item-list">
+    @foreach (var item in Model)
+    {
+        <li><a href="@Url.Action("Details", "Store",
+                new { id = item.ItemId })">
+            @*<img alt="@item.Title" src="@item.AlbumArtUrl" />*@
+            <span>@item.Name</span>
+</a>
+        </li>
+    }
+</ul>
+
